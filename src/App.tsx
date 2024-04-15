@@ -45,7 +45,7 @@ function App() {
         <div>{error?.message}</div>
         <div>
       {chains.map((chain) => (
-        <button key={chain.id} onClick={() => switchChain({ chainId: chain.id })}>
+        <button key={chain.id} onClick={() => switchChain({ chainId: chain.id as 1 | 11155111 | 56 })}>
           {chain.name}
         </button>
       ))}
