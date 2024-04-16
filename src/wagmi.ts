@@ -1,5 +1,5 @@
 
-import { http, createConfig, fallback } from 'wagmi'
+import { http, createConfig, fallback, unstable_connector } from 'wagmi'
 import { bsc, mainnet, sepolia } from 'wagmi/chains'
 import {  injected, walletConnect } from 'wagmi/connectors'
 
@@ -13,7 +13,7 @@ export const config = createConfig({
     [mainnet.id]: http(),
     [sepolia.id]: http(),
     [bsc.id]: fallback([
-            // unstable_connector(injected),
+            unstable_connector(injected),
             http(`https://bsc-rpc.publicnode.com`),
             http(`https://bsc-dataseed.binance.org`),
             http(`https://bsc-dataseed1.defibit.io`),
